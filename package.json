@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "mcfui",
   "version": "1.0.0",
   "description": "",
   "main": "",
@@ -14,7 +14,7 @@
     "Jasmine",
     "Simon"
   ],
-  "author": "",
+  "author": "cjayaschandran",
   "license": "",
   "devDependencies": {
 		"grunt-contrib-clean": "~0.6.0",
