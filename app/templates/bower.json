@@ -2,7 +2,7 @@
   "name": "<%= appname %>",
   "version": "<%= appversion %>",
   "authors": [
-    "<%= appauthor %>""<%= appemail %>"
+    "<%= appauthor %>","<%= appemail %>"
   ],
   "description": "",
   "main": "",
