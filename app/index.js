@@ -48,7 +48,7 @@ module.exports = generators.Base.extend({
 			{
 				name: 'name',
 				message: 'What is the name of your project?',
-				default: this.appName
+				default: 'TestProj'
 			},
 			
 			{
@@ -105,6 +105,34 @@ module.exports = generators.Base.extend({
 		return prompts;
 	},
 	
+	_createGruntfile: function() {
+		var sassfileExtention = (this.option.Sass) ? '.sass' : '.scss',
+			destRoot = this.destinationRoot(),
+			appDir = destRoot + '/app',
+			sassOutFile = appDir + '/styles/host.css',
+			sassInFile = appDir + '/sass/host' + sassfileExtention,
+			sassConfig = {
+				options: {
+					outputStyle: 'compressed'
+				},
+				dist: {
+					files: {}
+				}
+			};
+		sassConfig.dist.files[sassOutFile] = sassInFile;
+		
+			
+		this.gruntfile.insertConfig('clean', '{files: ["dist"]}');
+		this.gruntfile.insertConfig('jshint', '{all: ["Gruntfile.js", "app/scripts/**/*.js", "test/spec/**/*.js"]}');
+		this.gruntfile.insertConfig('sass', JSON.stringify(sassConfig));
+		
+		this.gruntfile.loadNpmTasks('grunt-contrib-clean');
+		this.gruntfile.loadNpmTasks('grunt-contrib-jshint');
+		this.gruntfile.loadNpmTasks('grunt-sass');
+		
+		this.gruntfile.registerTask('default', ['clean', 'jshint', 'sass']);
+		
+	},
 	_saveAnswers: function(answers, callback) {
 		this.appname = answers.name;
 		this.appdescription = answers.description;
@@ -150,6 +178,7 @@ module.exports = generators.Base.extend({
 	},
 	writing: function() {
 		this._createProjectFileSystem();
+		this._createGruntfile();
 	},
 	install: function() {
 		this.bowerInstall();

@@ -20,5 +20,16 @@
 		"grunt-contrib-clean": "~0.6.0",
 		"grunt-contrib-jshint": "~0.11.1",
 		"grunt-contrib-requirejs": "~0.4.1"
+  },
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-clean": "^0.6.0",
+    "chalk": "^1.1.1",
+    "grunt-contrib-requirejs": "^0.4.4",
+    "mkdirp": "^0.5.1",
+    "test": "^1.0.0",
+    "yeoman-generator": "^0.21.1",
+    "yosay": "^1.1.0"
   }
 }
