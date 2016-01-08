@@ -1,6 +1,6 @@
 {
   "name": "generator-mcfui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "main": "",
   "scripts": {
@@ -28,7 +28,6 @@
     "chalk": "^1.1.1",
     "grunt-contrib-requirejs": "^0.4.4",
     "mkdirp": "^0.5.1",
-    "test": "^1.0.0",
     "yeoman-generator": "^0.21.1",
     "yosay": "^1.1.0"
   }
